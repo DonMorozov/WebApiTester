@@ -30,14 +30,23 @@ For each test:
 Test script file is json-file.
 ## The fields of script file
 **TemplatePath** Path to request- and response- files
+
 **URL** URL of tested WebApi
+
 **Tests** Dictionary of tests configurations to executes **Important! tests will start in alphabet order**
+
 **Tests.[].URL** URL of tested WebApi, if it presents, then script-level parameter URL is ignored.
+
 **Tests.[].Params** Dictionary of test-level parameters.
+
 **Tests.[].Steps** Dictionary of steps of test for execute (will be executed in alphabetically order).
+
 **Tests.[].Steps.[].URL** URL of tested WebApi, if it presents, then script-level and test-level parameter URL is ignored.
+
 **Tests.[].Steps.[].Request** Request template file name.
+
 **Tests.[].Steps.[].Response** Response template file name.
+
 **Tests.[].Steps.[].Params** Test-level parameters.
 
 ## Parameters
