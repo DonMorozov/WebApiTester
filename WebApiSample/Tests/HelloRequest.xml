@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Request>
+    <HelloRequest>
+        <Name>{Name}</Name>
+        <Greeting>{Greeting}</Greeting>
+        <DialogID>{DialogID}</DialogID>
+    </HelloRequest>
+</Request>

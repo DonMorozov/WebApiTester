@@ -12,4 +12,16 @@
         <Compile Include="Program.fs" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Update="Tests\WebApiSample.test.json">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Include="Tests\DialogRequest.xml" />
+      <Content Include="Tests\DialogResponse.xml" />
+      <Content Include="Tests\HelloRequest.xml" />
+      <Content Include="Tests\HelloResponse.xml" />
+    </ItemGroup>
+
 </Project>

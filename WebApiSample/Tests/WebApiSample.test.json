@@ -1,0 +1,88 @@
+{
+  "TemplatesPath": "..\\..\\..\\..\\WebApiSample\\Tests",
+  "Tests": {
+    "Dialog with Cat": {
+      "URL":"https://localhost:44363/sample/api",
+      "Params": {
+        "Name": "Cat",
+        "Greeting": "Meo-o-ow",
+        "DialogID": "~Guid"
+      },
+      "Steps": {
+        "Greeting": {
+          "Request": "HelloRequest.xml",
+          "Response": "HelloResponse.xml",
+          "Params": {
+            "Proceed": "No"
+          }
+        }
+      }
+    },
+    "Dialog with russian mouse": {
+      "URL":"https://localhost:44363/sample/api",
+      "Params": {
+        "Name": "Mouse",
+        "Greeting": "Sque-e-ek",
+        "DialogID": "~Guid"
+      },
+      "Steps": {
+        "1 - Greeting": {
+          "Request": "HelloRequest.xml",
+          "Response": "HelloResponse.xml",
+          "Params": {
+            "Proceed": "Yes"
+          }
+        },
+        "2 - CheeseSelectionQuestion": {
+          "Request": "DialogRequest.xml",
+          "Response": "DialogResponse.xml",
+          "Params": {
+            "Client": "",
+            "Server": "What cheese is the best?"
+          }
+        },
+        "3 - CheeseIsSelected": {
+          "Request": "DialogRequest.xml",
+          "Response": "DialogResponse.xml",
+          "Params": {
+            "Client": "Roquefort",
+            "Server": "Rocky, my friend! How weather in Moscow?"
+          }
+        }
+      }
+    },
+    "Dialog with american mouse": {
+      "URL":"https://localhost:44363/sample/api",
+      "Params": {
+        "Name": "Mouse",
+        "Greeting": "Sque-e-ek",
+        "DialogID": "~Guid"
+      },
+      "Steps": {
+        "1 - Greeting": {
+          "Request": "HelloRequest.xml",
+          "Response": "HelloResponse.xml",
+          "Params": {
+            "Proceed": "Yes"
+          }
+        },
+        "2 - CheeseSelectionQuestion": {
+          "Request": "DialogRequest.xml",
+          "Response": "DialogResponse.xml",
+          "Params": {
+            "Client": "",
+            "Server": "What cheese is the best?"
+          }
+        },
+        "3 - CheeseIsSelected": {
+          "Request": "DialogRequest.xml",
+          "Response": "DialogResponse.xml",
+          "Params": {
+            "Client": "Monterey Jack",
+            "Server": "Monty, my friend! Where is Hackwrench?"
+          }
+        }
+      }
+    }
+  }
+}
