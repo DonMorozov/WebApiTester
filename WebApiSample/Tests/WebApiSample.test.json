@@ -1,8 +1,8 @@
 {
   "TemplatesPath": "..\\..\\..\\..\\WebApiSample\\Tests",
+  "URL":"https://localhost:5001/sample/api",
   "Tests": {
-    "Dialog with Cat": {
-      "URL":"https://localhost:5001/sample/api",
+    "Dialog with Cat": {      
       "Params": {
         "Name": "Cat",
         "Greeting": "Meo-o-ow",
@@ -18,8 +18,7 @@
         }
       }
     },
-    "Dialog with russian mouse": {
-      "URL":"https://localhost:5001/sample/api",
+    "Dialog with russian mouse": {      
       "Params": {
         "Name": "Mouse",
         "Greeting": "Sque-e-ek",
@@ -51,8 +50,7 @@
         }
       }
     },
-    "Dialog with american mouse": {
-      "URL":"https://localhost:5001/sample/api",
+    "Dialog with american mouse": {      
       "Params": {
         "Name": "Mouse",
         "Greeting": "Sque-e-ek",

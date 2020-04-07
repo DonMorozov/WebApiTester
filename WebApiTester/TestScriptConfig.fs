@@ -1,7 +1,5 @@
 namespace Morozov.WebApiTester
 
-open System
-
 open Newtonsoft.Json
 
 module TestScriptConfig =
@@ -35,16 +33,12 @@ module TestScriptConfig =
     
     type TestScriptConfig =
         {
+            [<JsonProperty(Required = Required.Default)>]
+            URL: string
+            
             [<JsonProperty(Required = Required.Always)>]
             TemplatesPath: string
             
             [<JsonProperty(Required = Required.Always)>]            
             Tests: Map<string, TestConfig>   
-        }
-        
-    type ExecutionConfig =
-        {
-            TemplatePath: string
-            URL: string
-            Params: Map<string, string>
-        }    
+        }   

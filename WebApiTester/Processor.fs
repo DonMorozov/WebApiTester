@@ -44,7 +44,7 @@ module Processor =
         
     let RunTestStep (templatePath: string) (testUrl:string) (resolvedTestParams: Map<string, string>)
         (accumulator: TestResult) (stepName: string) (stepConfig: StepConfig) : TestResult =
-        let url = if String.IsNullOrWhiteSpace stepConfig.URL then testUrl else stepConfig.URL
+        let url = FirstNotNull stepConfig.URL testUrl
         let templateParams = MergeMap resolvedTestParams (ResolveParams stepConfig.Params)        
         match accumulator with
         | CantExe results -> CantExe results
@@ -65,17 +65,18 @@ module Processor =
                     | Failure result -> Failure <| results.Add(stepName, Failure result)
                     | Success result -> Success <| results.Add(stepName, Success result)
                     
-    let RunTest (templatePath: string)
-        (accumulator: ScriptResult) (testName: string) (testConfig:TestConfig): ScriptResult =        
+    let RunTest (templatePath: string) (scriptUrl: string)
+        (accumulator: ScriptResult) (testName: string) (testConfig:TestConfig): ScriptResult =
+        let url = FirstNotNull testConfig.URL scriptUrl
         let testParams = ResolveParams testConfig.Params
         let testResult: TestResult =
             testConfig.Steps
-            |> Map.fold (RunTestStep templatePath testConfig.URL testParams) (Success Map.empty)
+            |> Map.fold (RunTestStep templatePath url testParams) (Success Map.empty)
         (+=) accumulator testName testResult
         
     let RunScript script: ScriptResult =        
         script.Tests
-        |> Map.fold (RunTest script.TemplatesPath) (Success Map.empty)
+        |> Map.fold (RunTest script.TemplatesPath script.URL) (Success Map.empty)
         
     let ToResult result =
         match result with
