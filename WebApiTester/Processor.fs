@@ -18,7 +18,12 @@ module Processor =
         with ex -> CantExe <| sprintf "Can't parse test script file: %s" ex.Message
         
     let ResolveParams (unresolvedParams: Map<string, string>): Map<string, string> =
-        unresolvedParams |> Map.map (fun k v -> if v = "~Guid" then Guid.NewGuid().ToString() else v)
+        unresolvedParams |> Map.map (fun k v ->
+            if v = "~Guid" then Guid.NewGuid().ToString()
+            elif v = "~DateTime" then DateTime.Now.ToString("yyyy-MM-ddThh:mm:ss")
+            elif v = "~Date" then DateTime.Now.ToString("yyyy-MM-dd")
+            else v
+        )
         
     let StepFailureMessage (responseText: string) (expectedResposneText: string) : string =
         sprintf "Unexpected response \n \n Expected \n %s \n \n Received \n %s" expectedResposneText responseText 
