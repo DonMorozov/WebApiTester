@@ -1,7 +1,6 @@
 namespace Morozov.WebApiTester
 
 open System
-open System
 open System.IO
 
 open Newtonsoft.Json
@@ -33,9 +32,15 @@ module Processor =
             else Failure (StepFailureMessage responseText expectedResponseText)
     
     let SubstParams (templateText: string) (templateParams: Map<string, string>) =
+        let RemoveWhiteSpaces (text: string): string =
+            text.Split('\n')
+            |> List.ofArray
+            |> List.map (fun x -> x.Trim())
+            |> Array.ofList
+            |> (fun x -> String.Join("", x))
         let SubstParam (acc:string) (paramName: string) (paramValue: string): string =
-            acc.Replace("{" + paramName + "}", paramValue)
-        templateParams |> Map.fold SubstParam templateText 
+            acc.Replace("{" + paramName + "}", paramValue)        
+        RemoveWhiteSpaces (templateParams |> Map.fold SubstParam templateText)
         
     let RunTestStep (templatePath: string) (testUrl:string) (resolvedTestParams: Map<string, string>)
         (accumulator: TestResult) (stepName: string) (stepConfig: StepConfig) : TestResult =

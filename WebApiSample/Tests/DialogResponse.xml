@@ -1,1 +1,6 @@
-<DialogData.Response xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Morozov.WebApiSample.Data"><DialogResponse><DialogID>{DialogID}</DialogID><Question>{Server}</Question></DialogResponse></DialogData.Response>
+<Response xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <DialogResponse>
+        <DialogID>{DialogID}</DialogID>
+        <Question>{Server}</Question>
+    </DialogResponse>
+</Response>

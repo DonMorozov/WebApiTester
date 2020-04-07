@@ -15,7 +15,7 @@ module DialogData =
         }
 
     [<CLIMutable>]
-    [<DataContract>]
+    [<DataContract(Namespace="")>]
     [<Struct>]
     type HelloResponse =
         {
@@ -33,7 +33,7 @@ module DialogData =
         }
 
     [<CLIMutable>]
-    [<DataContract>]
+    [<DataContract(Namespace="")>]
     [<Struct>]
     type DialogResponse =
         {
@@ -51,7 +51,7 @@ module DialogData =
         }
         
     [<CLIMutable>]
-    [<DataContract>]
+    [<DataContract(Name="Response", Namespace="")>]
     [<Struct>]
     type Response =
         {
