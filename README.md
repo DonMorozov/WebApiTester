@@ -29,30 +29,30 @@ For each test:
 # Test script file format
 Test script file is json-file.
 ## The fields of script file
-** TemplatePath ** Path to request- and response- files
-** URL ** URL of tested WebApi
-** Tests ** Dictionary of tests configurations to executes **Important! tests will start in alphabet order**
-** Tests.[].URL ** URL of tested WebApi, if it presents, then script-level parameter URL is ignored.
-** Tests.[].Params ** Dictionary of test-level parameters.
-** Tests.[].Steps ** Dictionary of steps of test for execute (will be executed in alphabetically order).
-** Tests.[].Steps.[].URL ** URL of tested WebApi, if it presents, then script-level and test-level parameter URL is ignored.
-** Tests.[].Steps.[].Request ** Request template file name.
-** Tests.[].Steps.[].Response ** Response template file name.
-** Tests.[].Steps.[].Params ** Test-level parameters.
+**TemplatePath** Path to request- and response- files
+**URL** URL of tested WebApi
+**Tests** Dictionary of tests configurations to executes **Important! tests will start in alphabet order**
+**Tests.[].URL** URL of tested WebApi, if it presents, then script-level parameter URL is ignored.
+**Tests.[].Params** Dictionary of test-level parameters.
+**Tests.[].Steps** Dictionary of steps of test for execute (will be executed in alphabetically order).
+**Tests.[].Steps.[].URL** URL of tested WebApi, if it presents, then script-level and test-level parameter URL is ignored.
+**Tests.[].Steps.[].Request** Request template file name.
+**Tests.[].Steps.[].Response** Response template file name.
+**Tests.[].Steps.[].Params** Test-level parameters.
 
 ## Parameters
 Parameters are used for parametrizing of request- and response- templates.
 If template contains parameter name into curves, then this name with this curves will be replaced by parameter value.
 There are some types of parameters:
 - value-parameter (any parameter value in script, except reserved) - name in template will be directly replaced by parameter value;
-- guid-parameter (parameter value in script is ** ~Guid ** ) - name in template will be replaced by guid, that will be generated during parameter resolution;
-- date-parameter (parameter value in script is ** ~Date ** or ** ~DateTime ** ) - name in template will be replaced by date (or date and time) of parameter resolution in ISO-format.
+- guid-parameter (parameter value in script is **~Guid** ) - name in template will be replaced by guid, that will be generated during parameter resolution;
+- date-parameter (parameter value in script is **~Date** or **~DateTime** ) - name in template will be replaced by date (or date and time) of parameter resolution in ISO-format.
 
 # Sample tester work
 ## Solution structure
 Solution contains two projects.
-1. ** WebApiTester ** - The tester.
-2. ** WebApiSample ** - Sample of WebApi for test, debug and demo of the Tester.
+1. **WebApiTester** - The tester.
+2. **WebApiSample** - Sample of WebApi for test, debug and demo of the Tester.
 
 ## Example of test script and templates
 Example script and templates locate in "Test" folder.
